@@ -22,7 +22,7 @@ class ErrorDecision(Enum):
     ABORT       = "abort"    
 
 
-ERROR_ANALYST_PROMPT = """You are the error recovery module of MARK XXV AI assistant.
+ERROR_ANALYST_PROMPT = """You are the error recovery module of Jarvis AI assistant.
 
 A task step has failed. Analyze the error and decide what to do.
 

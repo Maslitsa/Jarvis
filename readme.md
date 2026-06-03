@@ -1,17 +1,17 @@
-# 🤖 MARK XXXIX (39)
-### The Ultimate Cross-Platform Personal AI Assistant — By FatihMakes
-
-> 📺 **[Watch the full setup video on YouTube](https://youtu.be/ej1f5OE3SNQ?si=lCxDhJix9ungq1Ry)**
+# 🤖 Jarvis AI — Maslitsa Edition
+### The Ultimate Personal AI Assistant with Obsidian Memory Integration
 
 A real-time voice AI that can hear, see, understand, and control your computer — on any OS. Supporting Windows, macOS, and Linux. Local execution. Zero subscriptions. Engineered for total autonomy.
+
+This specific version of Jarvis is a **custom fork actively developed by Maslitsa**, featuring major improvements to memory persistence, a unified voice system, and an exclusive integration with **Obsidian Vault** for long-term memory management.
 
 ---
 
 ## ✨ Overview
 
-MARK XXXIX represents the pinnacle of the Jarvis series, evolving into a more flexible and robust system. It bridges the gap between the operating system and human intent. Through natural dialogue, Mark 39 analyzes your screen, processes uploaded documents, and executes complex workflows with a brand-new, adaptive interface.
+Jarvis AI bridges the gap between the operating system and human intent. Through natural dialogue, Jarvis analyzes your screen, processes uploaded documents, and executes complex workflows. 
 
-It's not just an assistant — it's an extension of your digital life.
+**Key Feature:** The brain of this Jarvis is connected directly to an Obsidian Vault. When you tell Jarvis facts about yourself, your projects, or your preferences, he permanently writes them into a structured knowledge graph in Obsidian. He can later read these markdown files to recall everything about you instantly.
 
 ---
 
@@ -20,31 +20,32 @@ It's not just an assistant — it's an extension of your digital life.
 ### Core Features
 | Feature | Description |
 |---|---|
-| 🎙️ Real-time Voice | Ultra-low latency conversation in any language |
-| 🖥️ System Control | Launch apps, manage files, execute terminal commands |
-| 🧩 Autonomous Tasks | High-level planning for complex, multi-step goals |
-| 👁️ Visual Awareness | Real-time screen processing and webcam vision |
-| 🧠 Persistent Memory | Deeply remembers your projects, preferences, and personal context |
-| ⌨️ Hybrid Input | Seamlessly switch between keyboard typing and voice commands |
+| 🎙️ **Unified Voice System** | Seamless, ultra-low latency conversation with a single cohesive persona |
+| 🧠 **Obsidian Memory** | Deeply remembers your projects and preferences using an external Obsidian Vault |
+| 🖥️ **System Control** | Launch apps, manage files, and execute terminal commands |
+| 🧩 **Autonomous Tasks** | High-level planning for complex, multi-step goals |
+| 👁️ **Visual Awareness** | Real-time screen processing and vision analysis |
+| 🛡️ **Total Privacy** | All your memory and data are stored locally. No data leaks. |
 
 ---
 
-## 🆕 What's New in XXXIX
+## 📷 The Obsidian Brain
 
-- 📂 **Advanced File Handling** — New support for direct file uploads. Drop PDFs, source code, or images into the assistant to have them analyzed, summarized, or edited instantly.
-- 🎨 **Adaptive & Flexible UI** — A complete overhaul of the interface. The new UI is fully resizable and responsive, featuring transparency controls and customizable layouts to fit your workspace perfectly.
-- 🐧🍎 **Refined Cross-Platform Stability** — Major fixes for macOS and Linux compatibility. Core system actions are now more consistent across all three major operating systems.
-- ⚡ **Optimized Core Engine** — Significant performance boost in tool-calling logic and response generation, resulting in a 40% faster interaction speed.
+*(Insert screenshot of your Obsidian Vault Graph View here!)*
+`![Obsidian Vault Graph View](path/to/your/image.png)`
+
+Jarvis uses Obsidian as his long-term memory center. You can open the `jarvis_vault` folder directly in Obsidian to see a living, breathing graph of everything Jarvis knows about you!
 
 ---
 
 ## ⚡ Quick Start
 
 ```bash
-git clone https://github.com/FatihMakes/Mark-XXXIX.git
-cd Mark-XXXIX
+git clone https://github.com/Maslitsa/Jarvis.git
+cd Jarvis
 pip install -r requirements.txt
 playwright install
+python setup.py
 python main.py
 ```
 
@@ -59,23 +60,19 @@ python main.py
 | **OS** | Windows 10/11, macOS, or Linux |
 | **Python** | 3.11 or 3.12 |
 | **Microphone** | Required for voice interaction |
-| **API Key** | Free Gemini API key |
+| **API Key** | Free Google Gemini API key |
 
 ---
 
-## ⚠️ License
+## 🛡️ Privacy & Security
 
-Personal and non-commercial use only.
-Licensed under **[Creative Commons BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)**.
+**Your data is yours.** 
+All files, configuration, API keys, and memory vaults (`jarvis_vault`) are completely local. The `.gitignore` is explicitly configured to ensure none of your personal memory or identity nodes are ever pushed to GitHub or leaked publicly. The only thing sent externally is the API request to Gemini.
 
 ---
 
-## 👤 Connect with the Creator
+## ⚖️ License
 
-Engineered by a developer building a real-world JARVIS-style assistant.
-⭐ **Star the repository to support the journey to Mark 100.**
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
 
-| Platform | Link |
-|---|---|
-| YouTube | [@FatihMakes](https://www.youtube.com/@FatihMakes) |
-| Instagram | [@fatihmakes](https://www.instagram.com/fatihmakes) |
+Copyright (c) 2026 Maslitsa.

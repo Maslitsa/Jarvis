@@ -1,4 +1,4 @@
-# 🤖 Jarvis AI — Maslitsa Edition
+<img width="856" height="791" alt="image" src="https://github.com/user-attachments/assets/e6affd3f-3fa9-4379-94b4-8156ed5fb5b5" /># 🤖 Jarvis AI — Maslitsa Edition
 ### The Ultimate Personal AI Assistant with Obsidian Memory Integration
 
 A real-time voice AI that can hear, see, understand, and control your computer — on any OS. Supporting Windows, macOS, and Linux. Local execution. Zero subscriptions. Engineered for total autonomy.
@@ -31,7 +31,7 @@ Jarvis AI bridges the gap between the operating system and human intent. Through
 
 ## 📷 The Obsidian Brain
 
-*(Insert screenshot of your Obsidian Vault Graph View here!)*
+<img width="856" height="791" alt="image" src="https://github.com/user-attachments/assets/99fb3d8a-5d44-4068-a7dd-87b6d00203a0" />
 `![Obsidian Vault Graph View](path/to/your/image.png)`
 
 Jarvis uses Obsidian as his long-term memory center. You can open the `jarvis_vault` folder directly in Obsidian to see a living, breathing graph of everything Jarvis knows about you!

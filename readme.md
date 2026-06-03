@@ -31,7 +31,7 @@ Jarvis AI bridges the gap between the operating system and human intent. Through
 
 ## 📷 The Obsidian Brain
 
-<img width="856" height="791" alt="image" src="https://github.com/user-attachments/assets/99fb3d8a-5d44-4068-a7dd-87b6d00203a0"/>
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/99fb3d8a-5d44-4068-a7dd-87b6d00203a0"/>
 
 Jarvis uses Obsidian as his long-term memory center. You can open the `jarvis_vault` folder directly in Obsidian to see a living, breathing graph of everything Jarvis knows about you!
 

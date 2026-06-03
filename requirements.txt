@@ -1,4 +1,4 @@
-﻿sounddevice
+sounddevice
 google-genai
 google-generativeai
 pillow
@@ -22,3 +22,5 @@ youtube-transcript-api
 pywinauto
 python-pptx
 pyqt6
+websockets
+openai

@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Config and secrets
+config/api_keys.json
+config/credentials.json
+
+# Personal data
+jarvis_vault/
+.obsidian/
+
+# Dev files
+.vscode/
+.jarvis_profiles/
+references/
+rewrite_main.py
+The project link to the Git.txt
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/

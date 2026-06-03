@@ -3,6 +3,8 @@ import re
 import threading
 import json
 import sys
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 import traceback
 from pathlib import Path
 
@@ -161,17 +163,17 @@ TOOL_DECLARATIONS = [
     {
         "name": "screen_process",
         "description": (
-            "Captures and analyzes the screen or webcam image. "
-            "MUST be called when user asks what is on screen, what you see, "
-            "analyze my screen, look at camera, etc. "
+            "Captures and analyzes the screen or webcam image using vision AI. "
+            "MUST be called when the user asks what is on screen, what you see, "
+            "analyze my screen, look at camera, describe the browser, etc. "
             "You have NO visual ability without this tool. "
-            "After calling this tool, stay SILENT — the vision module speaks directly."
+            "After the tool returns its analysis, speak the result naturally to the user."
         ),
         "parameters": {
             "type": "OBJECT",
             "properties": {
-                "angle": {"type": "STRING", "description": "'screen' to capture display, 'camera' for webcam. Default: 'screen'"},
-                "text":  {"type": "STRING", "description": "The question or instruction about the captured image"}
+                "angle": {"type": "STRING", "description": "'screen' to capture the display, 'camera' for webcam. Default: 'screen'"},
+                "text":  {"type": "STRING", "description": "The specific question or instruction about the captured image"}
             },
             "required": ["text"]
         }
@@ -492,6 +494,7 @@ class JarvisLive:
         self._speaking_lock = threading.Lock()
         self.ui.on_text_command = self._on_text_command
         self._turn_done_event: asyncio.Event | None = None
+        self._tool_executing = False
 
     def _on_text_command(self, text: str):
         if not self._loop or not self.session:
@@ -618,13 +621,11 @@ class JarvisLive:
                 result = r or "Done."
 
             elif name == "screen_process":
-                threading.Thread(
-                    target=screen_process,
-                    kwargs={"parameters": args, "response": None,
-                            "player": self.ui, "session_memory": None},
-                    daemon=True
-                ).start()
-                result = "Vision module activated. Stay completely silent — vision module will speak directly."
+                r = await loop.run_in_executor(
+                    None,
+                    lambda: screen_process(parameters=args, response=None, player=self.ui, session_memory=None)
+                )
+                result = r or "I analyzed the screen, sir."
 
             elif name == "computer_settings":
                 r = await loop.run_in_executor(None, lambda: computer_settings(parameters=args, response=None, player=self.ui))
@@ -702,7 +703,12 @@ class JarvisLive:
     async def _send_realtime(self):
         while True:
             msg = await self.out_queue.get()
-            await self.session.send_realtime_input(media=msg)
+            if getattr(self, '_tool_executing', False):
+                continue
+            try:
+                await self.session.send_realtime_input(media=msg)
+            except Exception as e:
+                print(f"[JARVIS] ⚠️  Audio send ignored: {e}")
 
     async def _listen_audio(self):
         print("[JARVIS] 🎤 Mic started")
@@ -774,14 +780,18 @@ class JarvisLive:
                             out_buf = []
 
                     if response.tool_call:
-                        fn_responses = []
-                        for fc in response.tool_call.function_calls:
-                            print(f"[JARVIS] 📞 {fc.name}")
-                            fr = await self._execute_tool(fc)
-                            fn_responses.append(fr)
-                        await self.session.send_tool_response(
-                            function_responses=fn_responses
-                        )
+                        self._tool_executing = True
+                        try:
+                            fn_responses = []
+                            for fc in response.tool_call.function_calls:
+                                print(f"[JARVIS] 📞 {fc.name}")
+                                fr = await self._execute_tool(fc)
+                                fn_responses.append(fr)
+                            await self.session.send_tool_response(
+                                function_responses=fn_responses
+                            )
+                        finally:
+                            self._tool_executing = False
         except Exception as e:
             print(f"[JARVIS] ❌ Recv: {e}")
             traceback.print_exc()
